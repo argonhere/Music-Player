@@ -1,0 +1,141 @@
+@font-face{
+    font-family: Aileron;
+    src: url("../fonts/Aileron-Bold.otf") format("opentype");
+}
+@font-face{
+    font-family: Aileronl;
+    src: url("../fonts/Aileron-Light.otf") format("opentype");
+}
+*{
+    box-shadow: border-box;
+}
+body{
+    background-color: #c5cbee;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: Aileron;
+    margin: 0;
+
+}
+
+.music-container{
+    background-color:  #cfd5f1;
+    border-radius: 35px;
+    box-shadow: 0 20px 20px 0 rgba(122, 112, 112, 0.158);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 30px;
+    margin: 100px 0;
+    position: relative;
+    z-index: 10;
+}
+
+.img-container{
+    position: relative;
+    width: 150px;
+}
+
+.img-container::after{
+    content: '';
+    background-color: #cfd5f1;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    width: 15px;
+    height: 15px;
+    transform: translate(-50%, 100px);
+}
+
+.img-container img{
+    border-radius: 50%;
+    width: inherit;
+    height: 150px;
+    position: relative;
+    top: 10px;
+    bottom: 30px;
+    left: 0;
+    animation: rotate 3s linear infinite;
+    
+
+    animation-play-state: paused;
+}
+
+.img-shadow{
+    border-radius: 50%;
+    top: 5px;
+    width: inherit;
+    height: 150px;
+    position: absolute;
+    left: -5px;
+    bottom: 30px;
+    border: 5px solid rgb(210, 210, 228);
+    box-shadow: 0 10px 20px 0 rgba(14, 12, 12, 0.158);
+}
+.music-container.play .img-container img
+{
+    animation-play-state: running;
+}
+
+@keyframes rotate{
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+.navigation{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.action-btn{
+    border: none;
+    margin: 15px;
+    background-color: #cfd5f1;
+    font-size: 20px;
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+    color: slategray;
+}
+.music-info{
+    position: relative;
+    top: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#title{ 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-bottom: 0;
+}
+
+.progress-container{
+    background: #fff;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 10px 0;
+    height: 4px;
+    width: 100%;
+    
+}
+.progress{
+    background-color: lightskyblue;
+    border-radius: 5px;
+    width: 0%;
+    height: 100%;
+}
+h6{
+    margin-top: 3px;
+    font-family: Arial, Helvetica, sans-serif;
+}
