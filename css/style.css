@@ -107,6 +107,9 @@ body{
     cursor: pointer;
     color: slategray;
 }
+.action-btn:focus{
+    outline: 0;
+}
 .music-info{
     position: relative;
     top: 10px;
