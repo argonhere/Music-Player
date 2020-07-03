@@ -15,6 +15,9 @@ const author = document.getElementById('author');
 const songs = ['Color White', 'Pariah' ];
 const singers = ['Parvaaz', 'Steven Wilson, Ninet Tayeb'];
 
+const cTime = document.getElementById('current-time');
+const tTime = document.getElementById('total-time');
+
 let songIndex = 1;
 
 loadSong(songs[songIndex]);
@@ -53,6 +56,9 @@ function updateProgress(e){
     const { duration, currentTime } = e.srcElement;
     const progressPercent = (currentTime/duration) * 100;
     progress.style.width = `${progressPercent}%`;
+
+    cTime.innerText = `${Math.floor(currentTime/60)}:${twoDig(Math.floor(currentTime%60))}`;
+    tTime.innerText = `${Math.floor(duration/60)}:${twoDig(Math.floor(duration%60))}`;
 }
 function setProgress(e){
     const width = this.clientWidth;
@@ -60,6 +66,9 @@ function setProgress(e){
     const duration = audio.duration;
 
     audio.currentTime = (clickX/width) * duration;
+}
+function twoDig(n){
+    return n > 9 ? "" + n: "0" + n;
 }
 
 playBtn.addEventListener('click', ()=>{
