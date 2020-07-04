@@ -107,6 +107,7 @@ body{
     width: 30px;
     cursor: pointer;
     color: slategray;
+    outline: none;
 }
 .music-info{
     position: relative;
