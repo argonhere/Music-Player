@@ -6,14 +6,15 @@ const nextBtn = document.getElementById('next');
 
 const audio = document.getElementById('audio');
 const progress = document.getElementById('progress');
+const point = document.getElementById('point');
 const progressContainer = document.getElementById('progress-container');
 
 const title = document.getElementById('title');
 const cover = document.getElementById('cover');
 const author = document.getElementById('author');
 
-const songs = ['Color White', 'Pariah' ];
-const singers = ['Parvaaz', 'Steven Wilson, Ninet Tayeb'];
+const songs = ['Color White', 'Pariah', 'Laude Lag Gaye' ];
+const singers = ['Parvaaz', 'Steven Wilson, Ninet Tayeb', 'BCS Ragasur'];
 
 const cTime = document.getElementById('current-time');
 const tTime = document.getElementById('total-time');
@@ -23,6 +24,8 @@ let songIndex = 1;
 loadSong(songs[songIndex]);
 
 function loadSong(song){
+    cTime.innerText = "0:00";
+    tTime.innerText = "0:00";
     title.innerText = song;
     author.innerText = singers[songIndex];
     audio.src = `audios/${song}.mp3`;
@@ -43,14 +46,24 @@ function pauseSong(){
     audio.pause();
 }
 function prevSong(){
-    songIndex = 1 - songIndex;
+    if(songIndex==0) songIndex = 2;
+    else songIndex--;
     loadSong(songs[songIndex]);
+    musicContainer.classList.add('play');
     audio.play();
+    
+    playBtn.querySelector('i.fas').classList.remove('fa-play');
+    playBtn.querySelector('i.fas').classList.add('fa-pause');
 }
 function nextSong(){
-    songIndex = 1 - songIndex;
+    if(songIndex==2) songIndex = 0;
+    else songIndex++;
     loadSong(songs[songIndex]);
+    musicContainer.classList.add('play');
     audio.play();
+
+    playBtn.querySelector('i.fas').classList.remove('fa-play');
+    playBtn.querySelector('i.fas').classList.add('fa-pause');
 }
 function updateProgress(e){
     const { duration, currentTime } = e.srcElement;
