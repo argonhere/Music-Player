@@ -19,7 +19,7 @@ body{
     font-family: Aileron;
     margin: 0;
     cursor: context-menu;
-
+    transition: ease-in 0.5s;
 }
 
 .music-container{
@@ -41,7 +41,7 @@ body{
     width: 150px;
 }
 
-.img-container::after{
+/*.img-container::after{
     content: '';
     background-color: #cfd5f1;
     border-radius: 50%;
@@ -51,7 +51,7 @@ body{
     width: 15px;
     height: 15px;
     transform: translate(-50%, 100px);
-}
+}*/
 
 .img-container img{
     border-radius: 50%;
@@ -75,12 +75,18 @@ body{
     position: absolute;
     left: -5px;
     bottom: 30px;
-    border: 5px solid rgb(210, 210, 228);
+    border: 5px solid #b6ccf0;
     box-shadow: 0 10px 20px 0 rgba(14, 12, 12, 0.158);
+}
+.img-shadow.dark-mode{
+    border-color: darkslategray;
 }
 .music-container.play .img-container img
 {
     animation-play-state: running;
+}
+.music-container.dark-mode{
+    background-color: #2d4059;
 }
 
 @keyframes rotate{
@@ -108,10 +114,6 @@ body{
     width: 30px;
     cursor: pointer;
     color: slategray;
-    devices.Better solution:
-
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
-    -webkit-tap-highlight-color: transparent;
 }
 .music-info{
     position: relative;
@@ -126,6 +128,14 @@ body{
     margin-bottom: 0;
 }
 
+#title.dark-mode, h6.dark-mode, h1.dark-mode, .time.dark-mode{
+    color: lightslategray;
+}
+body.dark-mode{
+    background-color: #222831;
+    transition: ease-in 0.5s;
+}
+
 .progress-container{
     background: #fff;
     border-radius: 10px;
@@ -135,11 +145,17 @@ body{
     width: 100%;
     
 }
+.progress-container.dark-mode{
+    background-color: lightslategray;
+}
 .progress{
     background-color: rgb(70, 126, 161);
     border-radius: 5px;
     width: 0%;
     height: 100%;
+}
+.progress.dark-mode{
+    background-color: lightsteelblue;
 }
 .time{
     display: flex;
@@ -159,11 +175,49 @@ h6{
     }
 
 #play{
-    background: rgb(167, 197, 231);
+    background: #b6ccf0;
     border-radius: 50%;
     width: 50px;
     height: 50px;
 }
+#play.dark-mode{
+    background-color: #222831;
+}
 .fa-play{
     transform: translateX(1.5px);
+}
+input[type=checkbox]{
+    -webkit-appearance: none;
+    visibility: hidden;
+    display: none;
+}
+.check {
+    position: relative;
+    display: block;
+    width: 40px;
+    height: 20px;
+    left: 100%;
+    top: 90%;
+    background-color: rgb(51, 42, 28);
+    border-radius: 10px;
+    cursor: pointer;
+}
+.check.dark-mode{
+    background-color: #b6ccf0;
+}
+.dark-mode.check::before{
+    background: rgb(85, 109, 109);
+    transform: translateX(20px);
+    transition: 0.5s;
+}
+.check::before{
+    content: '';
+    background: rgb(204, 199, 199);
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: 0.5s;
 }
