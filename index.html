@@ -9,19 +9,24 @@
 </head>
 <body>
     
-    <h1>Music Player</h1>
+    <h1 id="h1">Music Player
+        <label>
+            <input type="checkbox" id="check" >
+            <span class="check" id="checkl"></span>
+        </label>
+    </h1>
     <div id="music-container" class="music-container">
         
         <audio src="./audios/Pariah.mp3" id="audio"></audio>
 
         <div class="img-container" id="img-container">
             <img src="imgs/pariah.jpg" alt="music-cover" id="cover">
-            <div class="img-shadow"></div>
+            <div class="img-shadow" id="img-shadow"></div>
         </div>
         <div class="music-info">
             <h3 id="title">Pariah</h3>
             <h6 id="author">Steven Wilson, Ninet Tayeb</h6>
-            <div class="time">
+            <div class="time" id="time">
                 <div id="current-time" class="ctime">0:00</div>
                 <div id="total-time" class="ttime">0:00</div>
             </div>
@@ -33,7 +38,7 @@
             <button id="prev" class="action-btn">
                 <i class="fas fa-step-backward"></i>
             </button>
-            <button id="play" class="action-btn action-btn-big">
+            <button id="play" class="action-btn">
                 <i class="fas fa-play"></i>
             </button>
             <button id="next" class="action-btn">
@@ -41,8 +46,6 @@
             </button>
         </div>
     </div>
-
-
 
 
 

@@ -18,6 +18,14 @@ const singers = ['Parvaaz', 'Steven Wilson, Ninet Tayeb', 'BCS Ragasur'];
 
 const cTime = document.getElementById('current-time');
 const tTime = document.getElementById('total-time');
+const time = document.getElementById('time');
+
+const checkBox = document.getElementById('check');
+const checkBox1 = document.getElementById('checkl');
+const head = document.getElementById('h1');
+const imgShadow = document.getElementById('img-shadow');
+const body = document.body;
+
 
 let songIndex = 1;
 
@@ -83,6 +91,47 @@ function setProgress(e){
 function twoDig(n){
     return n > 9 ? "" + n: "0" + n;
 }
+function stateChange(){
+
+    body.classList.toggle('dark-mode');
+    musicContainer.classList.toggle('dark-mode');
+    title.classList.toggle('dark-mode');
+    author.classList.toggle('dark-mode');
+    time.classList.toggle('dark-mode');
+    checkBox1.classList.toggle('dark-mode');
+    head.classList.toggle('dark-mode');
+    playBtn.classList.toggle('dark-mode');
+    imgShadow.classList.toggle('dark-mode');
+    progress.classList.toggle('dark-mode');
+    progressContainer.classList.toggle('dark-mode');
+
+    
+    /*if(checkBox.checked){
+        document.body.style.backgroundColor = "#b6ccf0";
+        document.body.color = "white";
+        checkBox1.style.backgroundColor = "#222831";
+        musicContainer.style.backgroundColor = "#ccddf5";
+        head.style.color = "black";
+        playBtn.style.background = "#b6ccf0";
+        imgShadow.style.borderColor = "#b6ccf0";
+        title.style.color = "black";
+        author.style.color = "black";
+        time.style.color = "black";
+
+    }else{/* dark mode 
+        document.body.style.backgroundColor = "#222831";
+        document.body.color = "white";
+        checkBox1.style.backgroundColor = "#b6ccf0";
+        musicContainer.style.backgroundColor = "#2d4059";
+        head.style.color = "white";
+        playBtn.style.background = "#222831";
+        imgShadow.style.borderColor = "#222831";
+        title.style.color = "white";
+        author.style.color = "white";
+        time.style.color = "white";
+        checkBox.pseudoStyle("before", "transform", "translateX(30px)");
+    }*/
+}
 
 playBtn.addEventListener('click', ()=>{
     const isPlaying = musicContainer.classList.contains('play');
@@ -102,3 +151,5 @@ audio.addEventListener('timeupdate', updateProgress);
 progressContainer.addEventListener('click', setProgress);
 
 audio.addEventListener('ended', nextSong);
+
+checkBox.addEventListener('change', stateChange);
