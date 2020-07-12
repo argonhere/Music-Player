@@ -6,7 +6,7 @@ const nextBtn = document.getElementById('next');
 
 const audio = document.getElementById('audio');
 const progress = document.getElementById('progress');
-const point = document.getElementById('point');
+const pointer = document.getElementById('pointer');
 const progressContainer = document.getElementById('progress-container');
 
 const title = document.getElementById('title');
@@ -73,6 +73,8 @@ function nextSong(){
     playBtn.querySelector('i.fas').classList.remove('fa-play');
     playBtn.querySelector('i.fas').classList.add('fa-pause');
 }
+
+
 function updateProgress(e){
     const { duration, currentTime } = e.srcElement;
     const progressPercent = (currentTime/duration) * 100;
@@ -132,6 +134,19 @@ function stateChange(){
         checkBox.pseudoStyle("before", "transform", "translateX(30px)");
     }*/
 }
+function showCoords(event) {
+    var x = event.clientX;
+    var y = event.clientY;
+    var coords = "X coords: " + x + ", Y coords: " + y;
+    document.getElementById("demo").innerHTML = coords;
+  }
+function getOffset(el) {
+    const rect = el.getBoundingClientRect();
+    return {
+      left: rect.left + window.scrollX,
+      top: rect.top + window.scrollY
+    };
+  }
 
 playBtn.addEventListener('click', ()=>{
     const isPlaying = musicContainer.classList.contains('play');
