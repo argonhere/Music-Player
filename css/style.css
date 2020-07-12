@@ -143,6 +143,7 @@ body.dark-mode{
     margin: 10px 0;
     height: 4px;
     width: 100%;
+    display: flex;
     
 }
 .progress-container.dark-mode{
@@ -153,6 +154,13 @@ body.dark-mode{
     border-radius: 5px;
     width: 0%;
     height: 100%;
+}
+.pointer{
+    background-color: rgb(70, 126, 161);
+    border-radius: 5px;
+    width: 7px;
+    height: 7px;
+    transform: translate(-1.2px, -1.5px);
 }
 .progress.dark-mode{
     background-color: lightsteelblue;
