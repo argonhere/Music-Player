@@ -27,7 +27,7 @@ const imgShadow = document.getElementById('img-shadow');
 const body = document.body;
 
 
-let songIndex = 1;
+let songIndex = 2;
 
 loadSong(songs[songIndex]);
 
