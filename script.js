@@ -54,8 +54,7 @@ function pauseSong(){
     audio.pause();
 }
 function prevSong(){
-    if(songIndex==0) songIndex = 2;
-    else songIndex--;
+    songIndex= 1- songIndex;
     loadSong(songs[songIndex]);
     musicContainer.classList.add('play');
     audio.play();
@@ -64,8 +63,7 @@ function prevSong(){
     playBtn.querySelector('i.fas').classList.add('fa-pause');
 }
 function nextSong(){
-    if(songIndex==2) songIndex = 0;
-    else songIndex++;
+    songIndex= 1- songIndex;
     loadSong(songs[songIndex]);
     musicContainer.classList.add('play');
     audio.play();
